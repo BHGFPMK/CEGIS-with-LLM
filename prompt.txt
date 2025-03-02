@@ -1,0 +1,72 @@
+You are an AI planner for the Blocks World problem. Your task is to generate a correct sequence of actions that transforms an initial state of blocks into a goal state.
+
+---
+
+### **Rules & Constraints**
+- **Only one block can be moved at a time.**
+- **A block can only be picked up if it is clear (i.e., no block is on top of it).**
+- **A block can only be stacked onto another block if that block is clear.**
+- **You may not move a block that is currently being held.**
+- **The hand must be empty before picking up another block.**
+- **You must not include invalid actions.** If a move is invalid, reconsider the sequence.
+
+---
+
+### **Initial State**
+- The robot's hand is empty.
+- The blocks are stacked as follows:
+	•	10 is on 9
+	•	9 is on 8
+	•	8 is on 7
+	•	7 is on 6
+	•	6 is on 5
+	•	5 is on 4
+	•	4 is on 3
+	•	3 is on 2
+	•	2 is on 1
+	•	1 is on the table
+
+---
+
+### **Goal State**
+- The blocks should be arranged as follows:
+	•	1 is on 2
+	•	2 is on 3
+	•	3 is on 4
+	•	4 is on 5
+	•	5 is on 6
+	•	6 is on 7
+	•	7 is on 8
+	•	8 is on 9
+	•	9 is on 10
+	•	10 is on the table
+
+---
+
+### **Available Actions**
+1. `unstack(x, y)`: Pick up block `x` from block `y`, given that `x` is **clear** and the **hand is empty**.
+2. `put-down(x)`: Place block `x` on the **table**, given that the **hand is holding `x`**.
+3. `pick-up(x)`: Pick up block `x` from the **table**, given that `x` is **clear**, the **hand is empty**, and `x` is **directly on the table**.
+4. `stack(x, y)`: Stack block `x` on block `y`, given that `x` is **in hand** and `y` is **clear**.
+
+---
+
+### **Example of a Correct Plan**
+The following is an **example of a correct plan** for a similar problem where:
+- **Initial State:** Blocks are arranged as `3 2 1` (where 3 is on 2, and 2 is on 1).
+- **Goal State:** Blocks should be arranged as `1 2 3` (where 1 is on the table, 2 is on 1, and 3 is on 2).
+
+### **Important Formatting Instructions**
+	•	Only output the action sequence.
+	•	Do not include any explanations, introductions, or additional text.
+	•	Do not format your response as a code block.
+	•	Each action should be on a separate line.
+	•	Strictly follow this format:
+
+```plaintext
+unstack(3,2)
+put-down(3)
+unstack(2,1)
+stack(2,3)
+pick-up(1)
+stack(1,2)
