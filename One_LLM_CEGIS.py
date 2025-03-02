@@ -83,7 +83,7 @@ def format_plan_text(plan):
 
     return str(plan).strip()
 
-def iterative_planning(prompt_file="scenario/prompt.txt", blocks_file="scenario/initial.txt", goal_file="scenario/goal.txt"):
+def iterative_planning(prompt_file="prompt.txt", blocks_file="initial.txt", goal_file="goal.txt"):
 
     with open(prompt_file, "r", encoding="utf-8") as file:
         initial_prompt = file.read()
